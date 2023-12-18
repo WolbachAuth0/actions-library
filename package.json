@@ -4,7 +4,7 @@
   "description": "A collection of Auth0 Actions that have been written and used by Okta Solutions Engineers to demonstrate the Actions feature.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest --verbose"
   },
   "keywords": [
     "auth0",
@@ -15,7 +15,7 @@
   ],
   "author": "aaron.wolbach@okta.com",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^29.7.0"
   }
 }
