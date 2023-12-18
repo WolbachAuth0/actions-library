@@ -13,6 +13,10 @@
     "cic",
     "okta-cic"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WolbachAuth0/actions-library.git"
+  },
   "author": "aaron.wolbach@okta.com",
   "license": "MIT",
   "devDependencies": {
