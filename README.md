@@ -47,6 +47,10 @@ If you want to write your own unit tests, then use the following guidelines;
 For example, if you're testing the action you wrote in the `my-action.js` file. then name the file containing your tests `my-action.test.js` and save it in the same directory as the `my-action.js` file.  
 
 
+## References
+ - [Auth0 Actions](https://auth0.com/docs/customize/actions)
+ - [Readme dot IO](readme.so)
+
 ## Authors
 
 - [Aaron Wolbach](https://www.github.com/WolbachAuth0)
