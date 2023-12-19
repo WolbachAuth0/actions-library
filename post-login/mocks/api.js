@@ -244,9 +244,50 @@ const api = {
    * 
    */
   redirect: {
-    encodeToken: jest.fn(function (options) { return }),
-    sendUserTo: jest.fn(function (url, options) { return }),
-    validateToken: jest.fn(function (options) { return }),
+    /**
+     * Create a session token that is suitable for use as a query string parameter redirect target (via 
+     * sendUserTo) and contains data whose authenticity must be provable by the target endpoint. The 
+     * target endpoint can verify the authenticity and integrity of the data by checking the JWT's 
+     * signature using a shared secret.
+     * 
+     * Returns a JWT string.
+     * 
+     * @returns A JWT string
+     * @param {object} options Configure how sensitive data is encoded into the query parameters of the 
+     * resulting url.
+     * @param {number} options.expiresInSeconds Number of seconds before the token expires. Default is 900.
+     * @param {object} options.payload The data intended to be passed to the target of the redirect and whose 
+     * authenticity and integrity must be provable.
+     * @param {string} options.secret A secret that will be used to sign a JWT shared with the redirect target. 
+     * This value should be stored as a secret and retrieved using event.secrets['SECRET_NAME'].
+     */
+    encodeToken: jest.fn(function (options) { return '' }),
+    /**
+     * Trigger a browser redirect to the target `url` immediately after the action completes.
+     * 
+     * Returns a reference to the api object.
+     * 
+     * @returns A reference to the api object
+     * @param {string} url The target URL of the redirect.
+     * @param {object} options An object representing any additional query string parameters appended to the 
+     * redirect URL.
+     * @param {object} options.query Additional query string parameters to append to the redirect URL.
+     */
+    sendUserTo: jest.fn(function (url, options) { return api }),
+    /**
+     * Retrieve the data encoded in a JWT token passed to the /continue endpoint while simultaneously verifying 
+     * the authenticity and integrity of that data.
+     * 
+     * Returns payload of the JWT token.
+     * 
+     * @returns
+     * @param {object} options Options for retrieving the data encoded in a JWT token passed to the /continue endpoint 
+     * following a redirect.
+     * @param {string} options.secret Secret used to encode the token.
+     * @param {string} options.tokenParameterName The name of the query or body parameter that was sent to the continue
+     * endpoint. Defaults to session_token.
+     */
+    validateToken: jest.fn(function (options) { return '' }),
   },
   /**
    * Modify the SAML Response for the user that is logging in.
